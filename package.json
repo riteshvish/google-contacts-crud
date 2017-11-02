@@ -1,6 +1,6 @@
 {
   "name": "google-contacts-crud",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "da"
+    "url": "https://github.com/riteshvish/google-contacts-crud"
   },
   "keywords": [
     "google-contacts-crud",

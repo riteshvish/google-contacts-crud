@@ -16,7 +16,7 @@ Installation
 Examples
 ========
 
-* Set user's credentials. If you provide a refresh_token and expiry_date (milliseconds since the Unix Epoch) and the access_token has expired, the access_token will be automatically refreshed and the request is replayed.
+* Set user's credentials.
 
 ```javascript
 var GoogleContacts = require("google-contacts-crud");
@@ -26,19 +26,49 @@ var GoogleContacts = require("google-contacts-crud");
 var googleContacts = new GoogleContacts(CLIENT_ID, CLIENT_SECRET);
 var credentials    = {
   access_token : "youraccesstoken",
-  expiry_date  : 3600,               // Set it true to force a refresh always.
+  expiry_date  : 3600,               
   refresh_token: "yourrefresh_token",
   token_type   : "Bearer"
 };
 
-CLIENT_ID and CLIENT_SECRET
-https://console.developers.google.com/apis/
-Access Token Ref https://developers.google.com/oauthplayground/?code=4/
+
 
 googleContacts.setUserCredentials(credentials);
 ```
+How to get CLIENT_ID and CLIENT_SECRET
+Steps
+* Create A Google Project.
+* Enable Google Contact Api  (enable apis and services -> select Google Contact Api -> enable)
+* Create CLIENT_ID and CLIENT_SECRET (Create Credentials -> OAuth Client ID -> Web Application)
+        * Enter App Name
+        * Authorized JavaScript origins (your website name )
+        * Authorized redirect URIs (redirect url, if you don't have, use 'https://developers.google.com/oauthplayground')
 
-* Fetch all the contact's info such as 'name', 'email id', 'contact id' and 'contact type'.
+You get a initials access_token
+Steps
+* [Open OAuth Background for Access Token](https://developers.google.com/oauthplayground/?code=4)
+* Enter CLIENT_ID and CLIENT_SECRET (Settings ->  Use your own OAuth credentials)
+* Select https://www.google.com/m8/feeds/ (Select & authorize APIs ->  Contacts V3)
+* Click on Authorize APIs   
+    * Google Login Form will Popup to authorize your scope
+    * After authorization it will redirect to your given redirect url (https://developers.google.com/oauthplayground) with authorize token
+* Click on Exchange authorization code for tokens Button to get your first access token
+
+** Note Access Token will get expire after 3600 secs [To Check your Access Token Status](https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=your_access_token)
+
+
+
+
+
+
+[Create Google Project ](https://console.developers.google.com/apis)
+[OAuth Background for Access Token](https://developers.google.com/oauthplayground/?code=4)
+
+
+
+
+
+* Fetch all the contact's info such as 'name', 'email id', 'contact id',phoneNumber  and 'contact type'.
 
 ```javascript
 googleContacts.getContacts(function (error, data) {
@@ -47,7 +77,7 @@ googleContacts.getContacts(function (error, data) {
 });
 ```
 
-* Fetch the contact's info such as 'name', 'email id', 'contact id' and 'contact type' for a given contact id.
+* Fetch the contact's info such as 'name', 'email id', 'contact id',phoneNumber and 'contact type' for a given contact id.
 
 ```javascript
 var options = {
