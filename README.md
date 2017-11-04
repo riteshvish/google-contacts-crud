@@ -3,11 +3,11 @@ Description
 
 [Node.js](http://nodejs.org/) wrapper for the [Google Contacts API](https://developers.google.com/google-apps/contacts/v3/).
 
-We can perfrom CRUD on Google Contacts
-C : addContacts // single contacts at a time
-R : getContacts // all or with filters
-U : updateContacts // single contact update at a time
-D : deteteContacts // mulitple delete with contact_ids and with filter single delete
+* We can perfrom CRUD on Google Contacts
+* C : addContacts // single contacts at a time
+* R : getContacts // all or with filters
+* U : updateContacts // single contact update at a time
+* D : deteteContacts // mulitple delete with contact_ids and with filter single delete
 
 [Example Project](https://github.com/riteshvish/google-contacts-crud/tree/master/example).
 
