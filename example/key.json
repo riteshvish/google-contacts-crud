@@ -1,0 +1,12 @@
+{
+  "client":{
+    "id":"your client id",
+    "secret":"your client secret"
+  },
+  "credentials":{
+    "access_token": "your access_token",
+    "token_type": "Bearer",
+    "expires_in": 3600,
+    "refresh_token": "your refresh_token"
+  }
+}

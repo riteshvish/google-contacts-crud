@@ -100,7 +100,7 @@ googleContacts.getContacts(options, function (error, data) {
 ```javascript
 var options = {
   query_params: {    
-    q: "your@gmail.com"
+    q: "your@gmail.com" // your phoneNumber
   },
   headers     :{                          // Optional
         'GData-Version': '3.0',
@@ -149,4 +149,22 @@ var options = {
 googleContacts.deleteContacts(options, function (error) {
     console.log("Error " + error);
 });
+```
+
+* To Refresh Google Access Token.
+
+```javascript
+googleContacts.refreshToken(function (err, data, res) {
+    console.log("Error " + err);
+});
+
+response data
+
+
+{ accessToken:"new access token",
+  expiresIn: 3600,
+  expiresAt: 1509790743244,
+  idToken: undefined
+}
+
 ```
